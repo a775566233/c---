@@ -1,34 +1,33 @@
 #include<stdio.h>
 #include<ctype.h>
-#include<stdlib.h>
 #define end '|'
 #define SIZE 60
 int main(void)
 {
-    char c;//ÓÃ»§ÊäÈëµÄ×ÖÄ¸
-    int alphabet,word,Alphabet,line,blank,num,comma,period,other;//ÕâĞ©ÊÇÒªÍ³¼ÆµÄÊı¾İ
-    int i;//ÕâĞ©±äÁ¿ÊÇ¼ÆÊıÆ÷£¬ÎŞÊµ¼ÊÒâÒå
+    char c;//ç”¨æˆ·è¾“å…¥çš„å­—æ¯
+    int alphabet,word,Alphabet,line,blank,num,comma,period,other;//è¿™äº›æ˜¯è¦ç»Ÿè®¡çš„æ•°æ®
+    int i;//è¿™äº›å˜é‡æ˜¯è®¡æ•°å™¨ï¼Œæ— å®é™…æ„ä¹‰
     alphabet=word=Alphabet=line=blank=num=comma=period=other=0;
-    printf("ÇëÊäÈëÈô¸É¸ö¾ä×Ó¡¢·ûºÅµÈ£¬±¾³ÌĞò½«Í³¼Æ\nÓÃ»§ÊäÈëµÄµ¥´Ê¡¢´óĞ¡Ğ´×ÖÄ¸¡¢ĞĞÊı¡¢¶ººÅ¡¢¾äºÅ¡¢¿Õ¸ñ¡¢Êı×ÖºÍÆäËû×Ö·û¡£\n");
-    printf("ÊäÈë½áÊøÊ±£¬ÇëÊäÈë¡°|¡±ÒÔ½áÊøÍ³¼Æ¡£\n");
+    printf("è¯·è¾“å…¥è‹¥å¹²ä¸ªå¥å­ã€ç¬¦å·ç­‰ï¼Œæœ¬ç¨‹åºå°†ç»Ÿè®¡\nç”¨æˆ·è¾“å…¥çš„å•è¯ã€å¤§å°å†™å­—æ¯ã€è¡Œæ•°ã€é€—å·ã€å¥å·ã€ç©ºæ ¼ã€æ•°å­—å’Œå…¶ä»–å­—ç¬¦ã€‚\n");
+    printf("è¾“å…¥ç»“æŸæ—¶ï¼Œè¯·è¾“å…¥â€œ|â€ä»¥ç»“æŸç»Ÿè®¡ã€‚\n");
     for(i=0;i<SIZE;i++)
     {
         printf("*");
         if(i==29)
-            printf("ÎÒÖ»ÊÇ¸ö·Ö¸îÏß");
+            printf("æˆ‘åªæ˜¯ä¸ªåˆ†å‰²çº¿");
     }
     printf("\n");
     i=0;
     while((c = getchar())!=end)
     {
-        if(isdigit(c))//Í³¼ÆÊı×Ö
+        if(isdigit(c))//ç»Ÿè®¡æ•°å­—
             num++;
-        if(islower(c))//Í³¼ÆĞ¡Ğ´×ÖÄ¸
+        if(islower(c))//ç»Ÿè®¡å°å†™å­—æ¯
         {
             alphabet++;
             i++;
         }
-        else if(isupper(c))//Í³¼Æ´óĞ´×ÖÄ¸
+        else if(isupper(c))//ç»Ÿè®¡å¤§å†™å­—æ¯
         {
             Alphabet++;
             i++;
@@ -37,9 +36,9 @@ int main(void)
             comma++;
         if(c=='.')
             period++;
-        if(c=='\a')//Í³¼Æ¿Õ¸ñ
+        if(c=='\a')//ç»Ÿè®¡ç©ºæ ¼
             blank++;
-        if(c=='\n')//Í³¼ÆĞĞ
+        if(c=='\n')//ç»Ÿè®¡è¡Œ
             line++;
         if(ispunct(c)&&c!=','&&c!='.')
             other++;
@@ -48,18 +47,19 @@ int main(void)
             i=0;
             continue;
         }
-        if(i==1)//Í³¼Æµ¥´Ê
+        if(i==1)//ç»Ÿè®¡å•è¯
             word++;
     }
     for(i=0;i<SIZE;i++)
     {
         printf("*");
         if(i==29)
-            printf("ÎÒÖ»ÊÇ¸ö·Ö¸îÏß");
+            printf("æˆ‘åªæ˜¯ä¸ªåˆ†å‰²çº¿");
     }
     printf("\n");
-    printf("ÊäÈë½áÊø£¬½«ÎªÄúÍ³¼ÆÊı¾İ\n");
-    printf("ÄúÊäÈëÁË%d¸ö´óĞ´×ÖÄ¸¡¢%d¸öĞ¡Ğ´×ÖÄ¸¡¢%d¸ö¡°,¡±¡¢%d¸ö¡°.¡±¡¢%d¸öÆäËû×Ö·û¡¢%d¸öµ¥´Ê£¬ÔÚ%d¸ö¾ä×ÓÖĞ(ÒÔ¾äºÅ½áÎ²)£¬¹²·ÖÁË%dĞĞ¡£\n",Alphabet,alphabet,comma,period,other,word,period,line);
-    system("pause");
+    printf("è¾“å…¥ç»“æŸï¼Œå°†ä¸ºæ‚¨ç»Ÿè®¡æ•°æ®\n");
+    printf("æ‚¨è¾“å…¥äº†%dä¸ªå¤§å†™å­—æ¯ã€%dä¸ªå°å†™å­—æ¯ã€%dä¸ªâ€œ,â€ã€%dä¸ªâ€œ.â€ã€%dä¸ªå…¶ä»–å­—ç¬¦ã€%dä¸ªå•è¯ï¼Œåœ¨%dä¸ªå¥å­ä¸­(ä»¥å¥å·ç»“å°¾)ï¼Œå…±åˆ†äº†%dè¡Œã€‚\n",Alphabet,alphabet,comma,period,other,word,period,line);
+    getchar();
+    getchar();
 return 0;
 }
